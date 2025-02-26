@@ -1,6 +1,7 @@
 package com.arthurlamberti.ecommerce.vo.address;
 
 import com.arthurlamberti.ecommerce.enums.UserTypeEnum;
+import com.arthurlamberti.ecommerce.models.AddressJPAEntity;
 
 import java.time.LocalDateTime;
 
@@ -30,6 +31,21 @@ public record Address(
                 LocalDateTime.now(),
                 null,
                 null
+        );
+    }
+
+    public AddressJPAEntity toEntity() {
+        return new AddressJPAEntity(
+                "",
+                this.country,
+                this.state,
+                this.city,
+                this.street,
+                this.zipcode,
+                this.number,
+                this.complement,
+                this.updatedAt,
+                this.deletedAt
         );
     }
 

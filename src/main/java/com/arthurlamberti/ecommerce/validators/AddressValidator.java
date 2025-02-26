@@ -40,6 +40,10 @@ public class AddressValidator {
             notification.append(new Error("'number' cannot be null or empty"));
         }
 
+        if (isNull(address.userType())) {
+            notification.append(new Error("'userType' cannot be null"));
+        }
+
         if (notification.hasError()) {
             throw new ValidationException("Address invalid", notification);
         }

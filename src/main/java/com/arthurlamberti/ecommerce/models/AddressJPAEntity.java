@@ -38,8 +38,8 @@ public class AddressJPAEntity extends BaseEntity {
     @Column(name = "complement")
     private String complement;
 
-    @Column(name = "active")
-    private boolean active;
+//    @Column(name = "active")
+//    private boolean active;
 
 //    @ManyToOne
 //    @JoinColumn(name = "customer_id")

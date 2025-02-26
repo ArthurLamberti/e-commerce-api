@@ -1,5 +1,6 @@
 package com.arthurlamberti.ecommerce.services.impl;
 
+import com.arthurlamberti.ecommerce.repositories.AddressRepository;
 import com.arthurlamberti.ecommerce.services.AddressService;
 import com.arthurlamberti.ecommerce.validators.AddressValidator;
 import com.arthurlamberti.ecommerce.vo.address.Address;
@@ -16,11 +17,14 @@ import java.security.Principal;
 public class AddressServiceImpl implements AddressService {
 
     private AddressValidator addressValidator;
+    private AddressRepository addressRepository;
 
     @Override
     public void createAddress(@Valid CreateAddressRequest request, Principal principal) {
         final var address = Address.from(request);
         addressValidator.validateAddress(address);
-        System.out.println(request.city());
+
+        final var addressJpa = address.toEntity();
+        this.addressRepository.save(addressJpa);
     }
 }
