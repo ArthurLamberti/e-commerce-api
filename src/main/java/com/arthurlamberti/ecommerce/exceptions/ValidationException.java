@@ -22,4 +22,8 @@ public class ValidationException extends RuntimeException {
     public Error getFirstError() {
         return errors.getFirst();
     }
+
+    public List<Error> getErrors() {
+        return this.errors;
+    }
 }

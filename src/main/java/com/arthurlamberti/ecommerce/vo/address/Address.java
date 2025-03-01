@@ -34,9 +34,9 @@ public record Address(
         );
     }
 
-    public AddressJPAEntity toEntity() {
+    public AddressJPAEntity toEntity(String uuid) {
         return new AddressJPAEntity(
-                "",
+                uuid,
                 this.country,
                 this.state,
                 this.city,
@@ -44,7 +44,6 @@ public record Address(
                 this.zipcode,
                 this.numeral,
                 this.complement,
-                this.updatedAt,
                 this.deletedAt
         );
     }

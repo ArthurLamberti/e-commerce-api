@@ -52,9 +52,6 @@ public class AddressJPAEntity extends BaseEntity {
 //    @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
 //    private List<ShippingJpaEntity> shipping;
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 }

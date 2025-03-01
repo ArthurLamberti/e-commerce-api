@@ -11,20 +11,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.UUID;
 
 @Service
-@RequiredArgsConstructor(onConstructor_ = {@Autowired})
 public class AddressServiceImpl implements AddressService {
 
-    private AddressValidator addressValidator;
-    private AddressRepository addressRepository;
+    private final AddressValidator addressValidator;
+    private final AddressRepository addressRepository;
+
+    public AddressServiceImpl(
+            final AddressValidator addressValidator,
+            final AddressRepository addressRepository
+    ) {
+        this.addressValidator = addressValidator;
+        this.addressRepository = addressRepository;
+    }
 
     @Override
     public void createAddress(@Valid CreateAddressRequest request, Principal principal) {
         final var address = Address.from(request);
         addressValidator.validateAddress(address);
 
-        final var addressJpa = address.toEntity();
+        final var addressJpa = address.toEntity(UUID.randomUUID().toString().toLowerCase().replace("-", ""));
         this.addressRepository.save(addressJpa);
     }
 }

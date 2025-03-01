@@ -14,8 +14,12 @@ public class BaseEntity {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
+    @Column(name = "updated_at")
+    private LocalDateTime updatedAt;
+
     @PrePersist
     protected void onCreate() {
         this.setCreatedAt(LocalDateTime.now());
+        this.setUpdatedAt(LocalDateTime.now());
     }
 }
