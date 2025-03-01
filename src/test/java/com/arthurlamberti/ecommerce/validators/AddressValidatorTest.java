@@ -30,14 +30,14 @@ class AddressValidatorTest extends UnitTest {
             "country,state,,street,04123,123,,SELLER,'city' cannot be null or empty",
             "country,state,city,,04123,123,,SELLER,'street' cannot be null or empty",
             "country,state,city,street,,123,,SELLER,'zipcode' cannot be null or empty",
-            "country,state,city,street,04123,,,SELLER,'number' cannot be null or empty",
+            "country,state,city,street,04123,,,SELLER,'numeral' cannot be null or empty",
             "country,state,city,street,04123,123,,,'userType' cannot be null",
             "' ',state,city,street,04123,123,,SELLER,'country' cannot be null or empty",
             "country,'  ',city,street,04123,123,,SELLER,'state' cannot be null or empty",
             "country,state,' ',street,04123,123,,SELLER,'city' cannot be null or empty",
             "country,state,city,' ',04123,123,,SELLER,'street' cannot be null or empty",
             "country,state,city,street,' ',123,,SELLER,'zipcode' cannot be null or empty",
-            "country,state,city,street,04123,' ',,SELLER,'number' cannot be null or empty"
+            "country,state,city,street,04123,' ',,SELLER,'numeral' cannot be null or empty"
     })
     public void givenInvalidParams_whenCallsCreateAddress_thenThrowsException(
             String country,

@@ -36,8 +36,8 @@ public class AddressValidator {
             notification.append(new Error("'zipcode' cannot be null or empty"));
         }
 
-        if (isNull(address.number()) || address.number().isBlank()) {
-            notification.append(new Error("'number' cannot be null or empty"));
+        if (isNull(address.numeral()) || address.numeral().isBlank()) {
+            notification.append(new Error("'numeral' cannot be null or empty"));
         }
 
         if (isNull(address.userType())) {

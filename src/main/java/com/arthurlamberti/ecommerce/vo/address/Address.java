@@ -11,7 +11,7 @@ public record Address(
         String city,
         String street,
         String zipcode,
-        String number,
+        String numeral,
         String complement,
         UserTypeEnum userType,
         LocalDateTime createdAt,
@@ -25,7 +25,7 @@ public record Address(
                 createAddressRequest.city(),
                 createAddressRequest.street(),
                 createAddressRequest.zipcode(),
-                createAddressRequest.number(),
+                createAddressRequest.numeral(),
                 createAddressRequest.complement(),
                 createAddressRequest.userType(),
                 LocalDateTime.now(),
@@ -42,16 +42,16 @@ public record Address(
                 this.city,
                 this.street,
                 this.zipcode,
-                this.number,
+                this.numeral,
                 this.complement,
                 this.updatedAt,
                 this.deletedAt
         );
     }
 
-    public static Address newAddress(String country, String state, String city, String street, String zipcode, String number, String complement, UserTypeEnum userType) {
+    public static Address newAddress(String country, String state, String city, String street, String zipcode, String numeral, String complement, UserTypeEnum userType) {
         return new Address(
-                country, state, city, street, zipcode, number, complement, userType, LocalDateTime.now(), null, null
+                country, state, city, street, zipcode, numeral, complement, userType, LocalDateTime.now(), null, null
         );
     }
 }

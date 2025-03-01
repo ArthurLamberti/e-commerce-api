@@ -22,7 +22,8 @@ public record CreateAddressRequest(
         String zipcode,
 
         @NotBlank
-        String number,
+        String numeral,
+
         String complement,
 
         @NotNull

@@ -1,13 +1,11 @@
 package com.arthurlamberti.ecommerce.services.impl;
 
 import com.arthurlamberti.ecommerce.UnitTest;
-import com.arthurlamberti.ecommerce.enums.UserTypeEnum;
 import com.arthurlamberti.ecommerce.exceptions.ValidationException;
 import com.arthurlamberti.ecommerce.fixture.AddressFixture;
 import com.arthurlamberti.ecommerce.models.AddressJPAEntity;
 import com.arthurlamberti.ecommerce.repositories.AddressRepository;
 import com.arthurlamberti.ecommerce.validators.AddressValidator;
-import com.arthurlamberti.ecommerce.vo.address.CreateAddressRequest;
 import com.sun.security.auth.UserPrincipal;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
@@ -69,7 +67,7 @@ class AddressServiceImplTest extends UnitTest {
         assertEquals(addressRequest.state(), actualCaptor.getState());
         assertEquals(addressRequest.street(), actualCaptor.getStreet());
         assertEquals(addressRequest.zipcode(), actualCaptor.getZipCode());
-        assertEquals(addressRequest.number(), actualCaptor.getNumber());
+        assertEquals(addressRequest.numeral(), actualCaptor.getNumeral());
         assertEquals(addressRequest.complement(), actualCaptor.getComplement());
     }
 

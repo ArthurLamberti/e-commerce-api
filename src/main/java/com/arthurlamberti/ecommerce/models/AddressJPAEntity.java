@@ -33,7 +33,7 @@ public class AddressJPAEntity extends BaseEntity {
     private String zipCode;
 
     @Column(name = "numeral", nullable = false)
-    private String number;
+    private String numeral;
 
     @Column(name = "complement")
     private String complement;

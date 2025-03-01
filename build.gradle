@@ -1,7 +1,17 @@
+buildscript {
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath 'org.flywaydb:flyway-database-postgresql:10.20.1'
+	}
+}
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.4.2'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.flywaydb.flyway' version '10.20.1'
 }
 
 group = 'com.arthurlamberti'
@@ -45,4 +55,11 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+flyway {
+	url = System.getenv('FLYWAY_DB') ?: 'jdbc:postgresql://localhost:5432/ecommerce'
+	user = System.getenv('FLYWAY_USER') ?: 'admin'
+	password = System.getenv('FLYWAY_PASS') ?: '123123'
+	cleanDisabled = false
 }
